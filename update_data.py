@@ -21,9 +21,16 @@ for ticker in MAG7:
         if not pd.isna(price)
     ]
 
-# Save to JSON
-with open('/Users/elchinsuleymanov/Documents/Claude-Code/mag7-chart/stock_data.json', 'w') as f:
+# Save to JSON (use relative path for GitHub Actions compatibility)
+import os
+script_dir = os.path.dirname(os.path.abspath(__file__))
+output_path = os.path.join(script_dir, 'stock_data.json')
+
+with open(output_path, 'w') as f:
     json.dump(result, f)
+
+print(f"Data saved to {output_path}")
+print(f"Date range: {data.index[0].strftime('%Y-%m-%d')} to {data.index[-1].strftime('%Y-%m-%d')}")
 
 print(f"Data saved to stock_data.json")
 print(f"Date range: {data.index[0].strftime('%Y-%m-%d')} to {data.index[-1].strftime('%Y-%m-%d')}")
