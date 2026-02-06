@@ -88,20 +88,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 140px;
+    gap: 6px;
+    width: 100px;
     flex-shrink: 0;
   }
 
   .stat-card {
     background: rgba(255,255,255,0.05);
-    border-radius: 8px;
-    padding: 10px;
+    border-radius: 6px;
+    padding: 8px 6px;
     text-align: center;
     transition: transform 0.3s;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   }
 
   .stat-card:hover {
@@ -109,19 +106,14 @@
   }
 
   .stat-card .ticker {
-    font-size: 0.7rem;
-    color: #888;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ccc;
     margin-bottom: 2px;
   }
 
-  .stat-card .name {
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-
   .stat-card .return {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
   }
 
@@ -412,7 +404,6 @@ function updateStats() {
     return `
       <div class="stat-card" style="border-left: 3px solid ${info.color}">
         <div class="ticker">${ticker}</div>
-        <div class="name">${info.name}</div>
         <div class="return ${isPositive ? 'positive' : 'negative'}">
           ${sign}${returnPct.toFixed(2)}%
         </div>
