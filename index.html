@@ -40,11 +40,17 @@
     font-size: 1rem;
   }
 
+  .main-content {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
   .chart-container {
     background: rgba(255,255,255,0.05);
     border-radius: 16px;
     padding: 20px;
-    margin-bottom: 30px;
+    flex: 1;
   }
 
   .controls {
@@ -79,38 +85,39 @@
   }
 
   .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 140px;
+    flex-shrink: 0;
   }
 
   .stat-card {
     background: rgba(255,255,255,0.05);
-    border-radius: 12px;
-    padding: 15px;
+    border-radius: 8px;
+    padding: 10px;
     text-align: center;
     transition: transform 0.3s;
   }
 
   .stat-card:hover {
-    transform: translateY(-5px);
+    transform: translateX(-3px);
   }
 
   .stat-card .ticker {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: #888;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
   }
 
   .stat-card .name {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
 
   .stat-card .return {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 700;
   }
 
@@ -181,14 +188,16 @@
 
   <div class="controls" id="stockToggles"></div>
 
-  <div class="chart-container">
-    <canvas id="stockChart"></canvas>
-  </div>
+  <div class="main-content">
+    <div class="chart-container">
+      <canvas id="stockChart"></canvas>
+    </div>
 
-  <div class="stats-grid" id="statsGrid">
-    <div class="loading">
-      <div class="spinner"></div>
-      Loading stock data...
+    <div class="stats-grid" id="statsGrid">
+      <div class="loading">
+        <div class="spinner"></div>
+        Loading...
+      </div>
     </div>
   </div>
 </div>
